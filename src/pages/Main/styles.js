@@ -1,3 +1,49 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  height: 100vh;
+
+  ul {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  li {
+    display: flex;
+    padding: 10px;
+  }
+
+  li.active a {
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  li a {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #fff;
+
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .hidden {
+    display: none;
+    background-color: red;
+  }
+
+  h1 {
+    align-self: center;
+    margin-top: 100px;
+    color: #333;
+  }
+`;

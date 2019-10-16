@@ -2,14 +2,42 @@ import produce from 'immer';
 
 const INITIAL_STATE = {
   characters: [],
+  page: 1,
+  loading: false,
+  total: 0,
+  pageCount: 0,
+  searchString: '',
 };
 
 export default function character(state = INITIAL_STATE, action) {
   return produce(state, draft => {
     switch (action.type) {
-      case '@character/UPDATE': {
-        draft.name = action.payload.name;
-        draft.description = action.payload.description;
+      case '@characters/REQUEST': {
+        draft.loading = true;
+        break;
+      }
+      case '@characters/RESET_PAGE': {
+        draft.page = 1;
+        break;
+      }
+      case '@characters/SUCCESS': {
+        console.tron.log('--------------------------1');
+        console.tron.log(draft.searchString);
+        console.tron.log(action.payload.searchString);
+        console.tron.log(draft.page);
+        console.tron.log('--------------------------1');
+        draft.characters = action.payload.characters;
+        draft.loading = false;
+        draft.total = action.payload.total;
+        draft.pageCount = Math.ceil(draft.total / 6);
+        // draft.page = 1;
+        // if (draft.searchString !== action.payload.searchString) draft.page = 0;
+        // else draft.page = action.payload.page;
+        draft.searchString = action.payload.searchString;
+        break;
+      }
+      case '@characters/FAILURE': {
+        draft.loading = false;
         break;
       }
       default:
