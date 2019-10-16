@@ -21,11 +21,6 @@ export default function character(state = INITIAL_STATE, action) {
         break;
       }
       case '@characters/SUCCESS': {
-        console.tron.log('--------------------------1');
-        console.tron.log(draft.searchString);
-        console.tron.log(action.payload.searchString);
-        console.tron.log(draft.page);
-        console.tron.log('--------------------------1');
         draft.characters = action.payload.characters;
         draft.loading = false;
         draft.total = action.payload.total;

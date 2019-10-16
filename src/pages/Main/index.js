@@ -18,8 +18,6 @@ export default function Main() {
   const loading = useSelector(state => state.character.loading);
   const className = characters.length === 0 ? 'hidden' : null;
 
-  console.log(className);
-
   const ref = React.createRef();
 
   useEffect(() => {
