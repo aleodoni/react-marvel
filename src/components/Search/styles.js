@@ -10,9 +10,11 @@ export const Container = styled.div`
 
   input {
     display: flex;
-    flex: 1;
+    align-items: center;
+    justify-content: center;
 
-    margin-top: 50px;
+    width: 100%;
+    margin-top: 20px;
     border: none;
     padding: 15px;
     font-size: 24px;
@@ -20,16 +22,13 @@ export const Container = styled.div`
     color: #999;
     padding: 20px 25px;
     border-radius: 4px;
-    border: none;
   }
 
   button {
-    display: flex;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-left: 5px;
     border: none;
-    padding: 15px;
-    font-size: 24px;
+    /* padding: 15px; */
     background: rgba(0, 0, 0, 0.4);
     color: #999;
     padding: 20px 25px;

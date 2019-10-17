@@ -4,6 +4,7 @@ import ReactPaginate from 'react-paginate';
 
 import Serie from '../../components/Serie';
 import Loading from '../../components/Loading';
+import marvel from '../../assets/images/marvel.jpg';
 
 import {
   getSeriesRequest,
@@ -23,6 +24,7 @@ import {
   Series,
   SerieInfo,
   ButtonContainer,
+  Logo,
 } from './styles';
 
 export default function Detail() {
@@ -41,10 +43,10 @@ export default function Detail() {
 
   const ref = React.createRef();
 
-  useEffect(() => {
-    dispatch(getSeriesRequest(character[0].id, page));
-    if (ref.current) ref.current.state.selected = 0;
-  }, [page, dispatch, character]);
+  // useEffect(() => {
+  //   dispatch(getSeriesRequest(character[0].id, page));
+  //   if (ref.current) ref.current.state.selected = 0;
+  // }, [page, dispatch, character]);
 
   function handleMouseEnter(serie) {
     setShowSerieDetails(true);
@@ -61,6 +63,16 @@ export default function Detail() {
   }
 
   function handleClickVoltar() {
+    dispatch(reserSeries());
+    history.push('/');
+  }
+
+  function handleClickEditar() {
+    // dispatch(reserSeries());
+    history.push('/edit');
+  }
+
+  function handleGoStart() {
     dispatch(reserSeries());
     history.push('/');
   }
@@ -118,6 +130,11 @@ export default function Detail() {
 
   return (
     <Container>
+      <Logo onMouseDown={handleGoStart}>
+        <span>React +</span>
+        <img src={marvel} alt="marvel" />
+        <span>API</span>
+      </Logo>
       <Content>
         <Character>
           <Image>
@@ -132,7 +149,11 @@ export default function Detail() {
         {geraLoading()}
 
         <ButtonContainer>
-          <button type="button" className="editar">
+          <button
+            type="button"
+            className="editar"
+            onMouseDown={handleClickEditar}
+          >
             Editar personagem
           </button>
           <button

@@ -1,9 +1,18 @@
-import { takeLatest, call, put, all } from 'redux-saga/effects';
+import { takeLatest, call, put, all, select } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 
 import api from '../../../services/api';
+import history from '../../../services/history';
 
-import { getCharactersSuccess, getCharactersFailure } from './actions';
+import {
+  getCharactersSuccess,
+  getCharactersFailure,
+  saveCharactersSuccess,
+} from './actions';
+
+import { saveCharacterRequest } from '../character/actions';
+
+import * as selectors from './selectors';
 
 const limit = 6;
 
@@ -41,4 +50,23 @@ export function* getCharacters({ payload }) {
   }
 }
 
-export default all([takeLatest('@characters/REQUEST', getCharacters)]);
+export function* saveCharacter({ payload }) {
+  const { characterId, name, description } = payload;
+  const characters = yield select(selectors.characters);
+
+  const updatedCharacters = characters.map(character => {
+    return character.id === characterId
+      ? { ...character, name, description }
+      : character;
+  });
+
+  yield put(saveCharacterRequest(characterId, name, description));
+  yield put(saveCharactersSuccess(updatedCharacters));
+
+  history.push('/detail');
+}
+
+export default all([
+  takeLatest('@characters/REQUEST', getCharacters),
+  takeLatest('@characters/SAVE_REQUEST', saveCharacter),
+]);

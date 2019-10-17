@@ -34,9 +34,15 @@ export const Content = styled.div`
   justify-content: space-around;
   align-items: center;
 
+  opacity: 0.8;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 1;
+  }
   border-radius: 4px;
   padding: 15px;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.5);
   width: 500px;
   margin: 5px;
   cursor: pointer;

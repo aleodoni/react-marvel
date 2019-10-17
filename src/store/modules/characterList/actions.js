@@ -17,3 +17,23 @@ export function getCharactersFailure() {
     type: '@characters/FAILURE',
   };
 }
+
+export function saveCharactersRequest(characterId, name, description) {
+  return {
+    type: '@characters/SAVE_REQUEST',
+    payload: { characterId, name, description },
+  };
+}
+
+export function saveCharactersSuccess(updatedCharacters) {
+  return {
+    type: '@characters/SAVE_SUCCESS',
+    payload: { updatedCharacters },
+  };
+}
+
+export function saveCharactersFailure() {
+  return {
+    type: '@characters/SAVE_FAILURE',
+  };
+}

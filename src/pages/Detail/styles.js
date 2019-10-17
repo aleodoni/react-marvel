@@ -3,6 +3,7 @@ import { darken } from 'polished';
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
   /* justify-content: center; */
 
   max-width: 1100px;
@@ -14,15 +15,16 @@ export const Container = styled.div`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  /* flex: 1; */
+  justify-content: space-between;
+  flex: 1;
 
   color: #fff;
   padding: 20px;
   margin-top: 30px;
+  margin-bottom: 30px;
   /* max-width: 500px; */
   width: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 4px;
 
   ul {
@@ -122,7 +124,6 @@ export const ButtonContainer = styled.div`
   justify-content: flex-end;
 
   width: 100%;
-  flex: 1;
 
   button {
     padding: 10px;
@@ -150,5 +151,27 @@ export const ButtonContainer = styled.div`
     &:hover {
       background: ${darken(0.1, '#4dbaf9')};
     }
+  }
+`;
+
+export const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 20px;
+  opacity: 0.5;
+  cursor: pointer;
+
+  img {
+    height: 50px;
+    margin-right: 10px;
+  }
+
+  span {
+    color: #fff;
+    font-size: 42px;
+    font-weight: bold;
+    margin-right: 10px;
   }
 `;

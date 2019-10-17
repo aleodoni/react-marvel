@@ -40,10 +40,25 @@ export const Container = styled.div`
     display: none;
     background-color: red;
   }
+`;
 
-  h1 {
-    align-self: center;
-    margin-top: 100px;
-    color: #333;
+export const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 20px;
+  opacity: 0.5;
+
+  img {
+    height: 50px;
+    margin-right: 10px;
+  }
+
+  span {
+    color: #fff;
+    font-size: 42px;
+    font-weight: bold;
+    margin-right: 10px;
   }
 `;

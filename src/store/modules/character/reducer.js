@@ -22,6 +22,19 @@ export default function character(state = INITIAL_STATE, action) {
         draft.loading = false;
         break;
       }
+      case '@character/SAVE_REQUEST': {
+        draft.loading = true;
+        break;
+      }
+      case '@character/SAVE_SUCCESS': {
+        draft.character[0] = action.payload.character;
+        draft.loading = false;
+        break;
+      }
+      case '@character/SAVE_FAILURE': {
+        draft.loading = false;
+        break;
+      }
       default:
     }
   });

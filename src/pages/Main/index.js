@@ -2,12 +2,14 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 
-import { Container } from './styles';
+import { Container, Logo } from './styles';
 import Character from '../../components/Character';
 import Search from '../../components/Search';
 import Loading from '../../components/Loading';
 import { getCharactersRequest } from '../../store/modules/characterList/actions';
 import { getCharacterRequest } from '../../store/modules/character/actions';
+
+import marvel from '../../assets/images/marvel.jpg';
 
 export default function Main() {
   const dispatch = useDispatch();
@@ -17,7 +19,7 @@ export default function Main() {
   const pageCount = useSelector(state => state.characterList.pageCount);
   const searchString = useSelector(state => state.characterList.searchString);
   const loading = useSelector(state => state.characterList.loading);
-  const className = characters.length === 0 ? 'hidden' : null;
+  const className = characters && characters.length === 0 ? 'hidden' : null;
 
   const ref = React.createRef();
 
@@ -44,6 +46,11 @@ export default function Main() {
 
   return (
     <Container>
+      <Logo>
+        <span>React +</span>
+        <img src={marvel} alt="marvel" />
+        <span>API</span>
+      </Logo>
       <Search handleSearch={onHandleSearch} />
       {characters.map(character => (
         <Character

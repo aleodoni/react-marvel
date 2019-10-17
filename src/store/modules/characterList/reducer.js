@@ -29,6 +29,20 @@ export default function characterList(state = INITIAL_STATE, action) {
         draft.loading = false;
         break;
       }
+      case '@characters/SAVE_REQUEST': {
+        draft.loading = true;
+        break;
+      }
+      case '@characters/SAVE_SUCCESS': {
+        const { updatedCharacters } = action.payload;
+        draft.characters = updatedCharacters;
+        draft.loading = false;
+        break;
+      }
+      case '@characters/SAVE_FAILURE': {
+        draft.loading = false;
+        break;
+      }
       default:
     }
   });

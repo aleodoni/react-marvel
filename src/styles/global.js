@@ -22,13 +22,20 @@ export default createGlobalStyle`
   }
 
   body {
-    background: #555;
     -webkit-font-smoothing: antialiased !important;
   }
 
-  body, input, button {
-    color: #222;
-    font-size: 14px;
+  body:before {
+    content:'';
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+    background-image: linear-gradient(#25212e, #402744);
+  }
+
+  body, input, button, textarea, pre {
     font-family: Roboto, Arial, Helvetica, sans-serif;
   }
 
