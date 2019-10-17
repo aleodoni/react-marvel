@@ -1,19 +1,13 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import { MdSearch } from 'react-icons/md';
 
 import { Container } from './styles';
-import { getCharactersRequest } from '../../store/modules/character/actions';
 
 export default function Search({ handleSearch }) {
-  const dispatch = useDispatch();
-
-  const searchString = useSelector(state => state.character.searchString);
+  const searchString = useSelector(state => state.characterList.searchString);
   const [search, setSearch] = useState(searchString);
-
-  // function handleSearch() {
-  //   dispatch(getCharactersRequest(1, search));
-  // }
 
   function handleSearchChange(e) {
     const { value } = e.target;
@@ -43,3 +37,7 @@ export default function Search({ handleSearch }) {
     </Container>
   );
 }
+
+Search.propTypes = {
+  handleSearch: PropTypes.func.isRequired,
+};

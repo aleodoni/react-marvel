@@ -6,7 +6,7 @@ export default reducers => {
     {
       key: 'marvel',
       storage,
-      whitelist: ['character'],
+      whitelist: ['character', 'characterList', 'series'],
     },
     reducers
   );

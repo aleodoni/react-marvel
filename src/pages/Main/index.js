@@ -2,35 +2,36 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 
-// import history from '../../services/history';
 import { Container } from './styles';
 import Character from '../../components/Character';
 import Search from '../../components/Search';
-import { getCharactersRequest } from '../../store/modules/character/actions';
+import Loading from '../../components/Loading';
+import { getCharactersRequest } from '../../store/modules/characterList/actions';
+import { getCharacterRequest } from '../../store/modules/character/actions';
 
 export default function Main() {
   const dispatch = useDispatch();
 
-  const page = useSelector(state => state.character.page);
-  const characters = useSelector(state => state.character.characters);
-  const pageCount = useSelector(state => state.character.pageCount);
-  const searchString = useSelector(state => state.character.searchString);
-  const loading = useSelector(state => state.character.loading);
+  const page = useSelector(state => state.characterList.page);
+  const characters = useSelector(state => state.characterList.characters);
+  const pageCount = useSelector(state => state.characterList.pageCount);
+  const searchString = useSelector(state => state.characterList.searchString);
+  const loading = useSelector(state => state.characterList.loading);
   const className = characters.length === 0 ? 'hidden' : null;
 
   const ref = React.createRef();
 
   useEffect(() => {
-    console.tron.log('MUDOU PAGINA');
     dispatch(getCharactersRequest(page, searchString));
     if (ref.current) ref.current.state.selected = 0;
-  }, []);
+  }, [page, dispatch, searchString]);
 
   function handleSelectCharacter(id) {
-    console.tron.log(id);
+    dispatch(getCharacterRequest(id));
   }
 
   function handlePageClick({ selected }) {
+    console.tron.log(selected);
     dispatch(getCharactersRequest(selected + 1, searchString));
   }
 
@@ -38,6 +39,8 @@ export default function Main() {
     dispatch(getCharactersRequest(1, string));
     if (ref.current) ref.current.state.selected = 0;
   }
+
+  if (loading) return <Loading />;
 
   return (
     <Container>
@@ -63,7 +66,7 @@ export default function Main() {
         containerClassName={className}
         subContainerClassName="pages pagination"
         activeClassName="active"
-        forcePage={page}
+        forcePage={page - 1}
         ref={ref}
       />
       {className === 'hidden' && (

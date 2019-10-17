@@ -2,42 +2,41 @@ import { takeLatest, call, put, all } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 
 import api from '../../../services/api';
+import history from '../../../services/history';
 
-import { getCharactersSuccess, getCharactersFailure } from './actions';
+import { getCharacterSuccess, getCharacterFailure } from './actions';
+import { getSeriesRequest } from '../series/actions';
 
-const limit = 6;
-
-export function* getCharacters({ payload }) {
-  const { page, searchString } = payload;
-
-  const extraParams = {
-    limit,
-    offset: (page - 1) * limit,
-  };
+export function* getCharacter({ payload }) {
+  const { characterId } = payload;
 
   try {
-    const response = yield call(api.get, 'characters', {
+    const response = yield call(api.get, `characters/${characterId}`, {
       params: {
         ...api.defaults.params,
-        ...extraParams,
-        ...(searchString !== '' && { nameStartsWith: searchString }),
       },
     });
-
-    const { total } = response.data.data;
 
     const formatted = response.data.data.results.map(character => {
       return {
         id: character.id,
         name: character.name,
         url: `${character.thumbnail.path}.${character.thumbnail.extension}`,
+        description: character.description,
       };
     });
-    yield put(getCharactersSuccess(formatted, total, searchString));
+
+    console.tron.log(formatted);
+
+    yield put(getSeriesRequest(characterId, 1));
+    yield put(getCharacterSuccess(formatted));
+
+    history.push('/detail');
   } catch (err) {
-    toast.error('Falha ao carregar personagens da API da Marvel.');
-    yield put(getCharactersFailure());
+    console.tron.lot('ERRO');
+    toast.error('Falha ao carregar personagem da API da Marvel.');
+    yield put(getCharacterFailure());
   }
 }
 
-export default all([takeLatest('@characters/REQUEST', getCharacters)]);
+export default all([takeLatest('@character/REQUEST', getCharacter)]);

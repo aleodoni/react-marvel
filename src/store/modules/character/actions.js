@@ -1,25 +1,19 @@
-export function getCharactersRequest(page, searchString) {
+export function getCharacterRequest(characterId) {
   return {
-    type: '@characters/REQUEST',
-    payload: { page, searchString },
+    type: '@character/REQUEST',
+    payload: { characterId },
   };
 }
 
-export function getCharactersSuccess(characters, total, searchString) {
+export function getCharacterSuccess(character) {
   return {
-    type: '@characters/SUCCESS',
-    payload: { characters, total, searchString },
+    type: '@character/SUCCESS',
+    payload: { character },
   };
 }
 
-export function getCharactersFailure() {
+export function getCharacterFailure() {
   return {
-    type: '@characters/FAILURE',
-  };
-}
-
-export function resetPage() {
-  return {
-    type: '@characters/RESET_PAGE',
+    type: '@character/FAILURE',
   };
 }
