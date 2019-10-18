@@ -1,7 +1,8 @@
 {
   "name": "react-marvel",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "main": "index.js",
   "homepage": "https://aleodoni.github.io/react-marvel",
   "dependencies": {
     "@rocketseat/unform": "^1.6.1",
