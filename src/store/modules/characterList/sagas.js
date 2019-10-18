@@ -63,6 +63,8 @@ export function* saveCharacter({ payload }) {
   yield put(saveCharacterRequest(characterId, name, description));
   yield put(saveCharactersSuccess(updatedCharacters));
 
+  toast.success('Herói alterado com sucesso.');
+
   history.push('/detail');
 }
 

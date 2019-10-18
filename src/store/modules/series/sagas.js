@@ -10,8 +10,6 @@ const limit = 12;
 export function* getSeries({ payload }) {
   const { characterId, page } = payload;
 
-  console.tron.log(payload);
-
   const extraParams = {
     limit,
     offset: (page - 1) * limit,

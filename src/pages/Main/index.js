@@ -25,7 +25,6 @@ export default function Main() {
 
   useEffect(() => {
     dispatch(getCharactersRequest(page, searchString));
-    if (ref.current) ref.current.state.selected = 0;
   }, [page, dispatch, searchString]);
 
   function handleSelectCharacter(id) {
@@ -43,6 +42,8 @@ export default function Main() {
   }
 
   if (loading) return <Loading />;
+
+  if (ref.current) ref.current.state.selected = 0;
 
   return (
     <Container>

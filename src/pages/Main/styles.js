@@ -40,6 +40,16 @@ export const Container = styled.div`
     display: none;
     background-color: red;
   }
+
+  h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+
+    color: rgba(255, 255, 255, 0.5);
+    height: 100%;
+  }
 `;
 
 export const Logo = styled.div`
