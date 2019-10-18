@@ -32,7 +32,6 @@ export default function Main() {
   }
 
   function handlePageClick({ selected }) {
-    console.tron.log(selected);
     dispatch(getCharactersRequest(selected + 1, searchString));
   }
 
