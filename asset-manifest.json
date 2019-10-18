@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.js": "/react-marvel/static/js/main.73efb514.chunk.js",
+    "main.js.map": "/react-marvel/static/js/main.73efb514.chunk.js.map",
+    "runtime-main.js": "/react-marvel/static/js/runtime-main.95e88fdd.js",
+    "runtime-main.js.map": "/react-marvel/static/js/runtime-main.95e88fdd.js.map",
+    "static/css/2.5dbdccff.chunk.css": "/react-marvel/static/css/2.5dbdccff.chunk.css",
+    "static/js/2.0f2e6880.chunk.js": "/react-marvel/static/js/2.0f2e6880.chunk.js",
+    "static/js/2.0f2e6880.chunk.js.map": "/react-marvel/static/js/2.0f2e6880.chunk.js.map",
+    "index.html": "/react-marvel/index.html",
+    "precache-manifest.6d6341debe611e51b22ddc21f1621117.js": "/react-marvel/precache-manifest.6d6341debe611e51b22ddc21f1621117.js",
+    "service-worker.js": "/react-marvel/service-worker.js",
+    "static/css/2.5dbdccff.chunk.css.map": "/react-marvel/static/css/2.5dbdccff.chunk.css.map",
+    "static/media/marvel.jpg": "/react-marvel/static/media/marvel.cc3a8cb9.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.95e88fdd.js",
+    "static/css/2.5dbdccff.chunk.css",
+    "static/js/2.0f2e6880.chunk.js",
+    "static/js/main.73efb514.chunk.js"
+  ]
+}
