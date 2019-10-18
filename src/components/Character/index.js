@@ -8,9 +8,9 @@ export default function Character({ url, name, handleClick }) {
     <Container>
       <Content onClick={handleClick}>
         <Thumb>
-          <img src={url} alt="imagem" />
+          <img src={url} alt="imagem" data-testid="character-img" />
         </Thumb>
-        <Name>{name}</Name>
+        <Name data-testid="character-name">{name}</Name>
       </Content>
     </Container>
   );

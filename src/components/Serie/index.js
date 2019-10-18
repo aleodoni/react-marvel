@@ -7,7 +7,7 @@ export default function Serie({ url, onMouseEnter, onMouseLeave }) {
   return (
     <Container onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       <Imagem>
-        <img src={url} alt="imagem" />
+        <img src={url} alt="imagem" data-testid="serie-img" />
       </Imagem>
     </Container>
   );

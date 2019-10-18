@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renderiza corretamente 1`] = `
+<div>
+  <div
+    class="sc-bdVaJa kuQaNn"
+  >
+    <div
+      class="sc-bxivhb bYiJEU"
+    >
+      <div
+        class="sc-bwzfXH dRLscd"
+      >
+        <img
+          alt="imagem"
+          data-testid="character-img"
+          src="http://imagem.jpg"
+        />
+      </div>
+      <div
+        class="sc-htpNat cJsDH"
+        data-testid="character-name"
+      >
+        name
+      </div>
+    </div>
+  </div>
+</div>
+`;

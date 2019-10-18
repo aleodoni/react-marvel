@@ -30,8 +30,13 @@ export default function Search({ handleSearch }) {
         onChange={handleSearchChange}
         onKeyPress={handleKeyPressed}
         value={search}
+        data-testid="input-search"
       />
-      <button type="button" onClick={() => handleSearch(search)}>
+      <button
+        type="button"
+        onClick={() => handleSearch(search)}
+        data-testid="button-search"
+      >
         <MdSearch size={20} />
       </button>
     </Container>
