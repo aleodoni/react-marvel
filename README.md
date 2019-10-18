@@ -38,5 +38,8 @@ Criei testes para os componentes e para os reducers.
 ### Reactotron
 Por conta, adicionei o suporte ao Reactotron para facilitar a inspeção nas informações da aplicação. Ele está configurado desde o básico até o Saga.
 
+### Github Pages
+Apesar de não ser correto, expus temporariamente a private_key da api da Marvel no arquivo .env e deixei a aplicação rodando no endereço : https://aleodoni.github.io/react-marvel/
+
 ### Agradecimento
 Desde já agradeço a oportunidade e fico à disposição para qualquer coisa.
