@@ -13,7 +13,7 @@
     "axios": "^0.19.0",
     "dotenv": "^8.1.0",
     "history": "^4.10.1",
-    "immer": "^4.0.1",
+    "immer": "^8.0.1",
     "jest-dom": "^4.0.0",
     "polished": "^3.4.1",
     "prop-types": "^15.7.2",
